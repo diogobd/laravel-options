@@ -14,9 +14,10 @@ class CreateOptionsTable extends Migration
     public function up()
     {
         Schema::create('options', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('key')->unique();
             $table->text('value');
+            $table->bigInteger('tenant_id')->nullable(true);
         });
     }
 
